@@ -1,6 +1,9 @@
 # Render some graphics
-# get python version: python -V (or python --version)
-# install package: pip3 install --user http://bit.ly/csc161graphics
+# using this as a starting point: https://www.youtube.com/watch?v=IpiVXHcSBSw
+
+# get the python version: python -V (or python --version)
+# install "graphics" package: pip3 install --user http://bit.ly/csc161graphics
+# run: python3 main.py
 
 from graphics import *
 
