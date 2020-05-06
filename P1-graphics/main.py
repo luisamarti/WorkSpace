@@ -9,7 +9,10 @@ from graphics import *
 
 def main():
     win = GraphWin("My Window", 500, 500)
-    win.setBackground(color_rgb(0,0,50))
+    #win.setBackground(color_rgb(0,0,0))
+
+    txt = Text(Point(250,250), "what's up?")
+    txt.draw(win)
 
     win.getMouse()
     win.close()
