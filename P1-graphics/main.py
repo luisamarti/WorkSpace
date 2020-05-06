@@ -8,6 +8,12 @@
 from graphics import *
 
 def main():
-    print('hello')
+    win = GraphWin("My Window", 500, 500)
+    win.setBackground(color_rgb(0,0,50))
+
+    win.getMouse()
+    win.close()
+
+
 
 main()
