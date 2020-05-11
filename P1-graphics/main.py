@@ -6,6 +6,9 @@
 # run: python3 main.py
 
 from graphics import *
+import time
+#import keyboard 
+import cv2
 
 def main():
     win = GraphWin("My Window", 500, 500)
@@ -16,9 +19,21 @@ def main():
     txt.setSize(30)
     txt.setFace('courier')
     txt.draw(win)
-
-    win.getMouse()
-    win.close()
+    time.sleep(2)
+    txt.move(10,40)
+    txt.move(13,43)
+    #win.getMouse()
+    #win.close()
+    
+    while True: 
+        key = cv2.waitKey(1) & 0xFF  #get key being pressed
+        if key == 27:
+            quit()
+        elif key != 255:
+       
+         print(key)
+       
+            
 
 
 
