@@ -3,11 +3,20 @@
 
 # get the python version: python -V (or python --version)
 # install "graphics" package: pip3 install --user http://bit.ly/csc161graphics
+# pip3 install keyboard
+<<<<<<< Updated upstream
+# pip3 install opencv-python
+# pylint --extension-pkg-whitelist=cv2
 # run: python3 main.py
 
 from graphics import *
 import time
 #import keyboard 
+=======
+# run: python3 main.py
+
+from graphics import *
+>>>>>>> Stashed changes
 import cv2
 
 def main():
@@ -19,22 +28,19 @@ def main():
     txt.setSize(30)
     txt.setFace('courier')
     txt.draw(win)
-    time.sleep(2)
+    #time.sleep(2)
     txt.move(10,40)
     txt.move(13,43)
-    #win.getMouse()
-    #win.close()
+    
     
     while True: 
         key = cv2.waitKey(1) & 0xFF  #get key being pressed
         if key == 27:
-            quit()
+            win.close()
         elif key != 255:
-       
-         print(key)
-       
-            
-
+            print(key)
+    win.getMouse()
+    win.close()
 
 
 main()
