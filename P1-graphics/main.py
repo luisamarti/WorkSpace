@@ -4,6 +4,7 @@
 # get the python version: python -V (or python --version)
 # install "graphics" package: pip3 install --user http://bit.ly/csc161graphics
 # pip3 install keyboard
+<<<<<<< Updated upstream
 # pip3 install opencv-python
 # pylint --extension-pkg-whitelist=cv2
 # run: python3 main.py
@@ -11,6 +12,11 @@
 from graphics import *
 import time
 #import keyboard 
+=======
+# run: python3 main.py
+
+from graphics import *
+>>>>>>> Stashed changes
 import cv2
 
 def main():
