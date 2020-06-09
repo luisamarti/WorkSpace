@@ -1,13 +1,13 @@
 # Use Python to read and write a file
 
 try:
-    f = open("myfile.txt", "a")
+    f = open("myfile.txt", "w")
 except:
     print("Error")
 else:
     pass
 
-print(f)
+#print(f)
 writestring = "Hi There"
 
 f.write(writestring)
