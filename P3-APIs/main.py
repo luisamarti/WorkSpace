@@ -14,4 +14,5 @@ if resp.status_code != 200:
 data = resp.json() 
 print(data)
 
+# try parsing data - how do you view or extract a prop
 print(data.weather)
