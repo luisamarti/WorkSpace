@@ -15,4 +15,4 @@ data = resp.json()
 print(data)
 
 # try parsing data - how do you view or extract a prop
-print(data.weather)
+print(json.dumps(json.loads(data).weather))
