@@ -10,9 +10,39 @@ comlist = serial.tools.list_ports.comports()
 connected = []
 for element in comlist:
     connected.append(element.device)
-print("Connected COM ports: " + str(connected))
 
-myPort = serial.Serial('COM3')  # open serial port
+print("Connected COM ports: " + str(connected))
+myPort = None  
+for element in connected:
+    #check if an error was return 
+    try:
+        myPort = serial.Serial(element)
+        #if we successfully found a port, leave loop 
+        break 
+    except FileNotFoundError:
+        continue 
+        #don't do anything, let the loop re-iterate 
+    except Exception as ex:
+        template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+        message = template.format(type(ex).__name__, ex.args)
+        print(message)
+
+
+
+      
+
+
+
+print( myPort )
+   
+        
+    
+
+
+#myPort = serial.Serial('COM3') 
+
+
+# open serial port
 #myPort = serial.Serial('/dev/ttyUSB0')  # open serial port
 #print(myPort.name)         # check which port was really used
 
