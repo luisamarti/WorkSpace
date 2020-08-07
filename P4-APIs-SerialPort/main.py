@@ -11,34 +11,33 @@ connected = []
 for element in comlist:
     connected.append(element.device)
 
-print("Connected COM ports: " + str(connected))
 myPort = None  
+i = 1;
 for element in connected:
-    #check if an error was return 
-    try:
-        myPort = serial.Serial(element)
-        #if we successfully found a port, leave loop 
-        break 
-    except FileNotFoundError:
-        continue 
-        #don't do anything, let the loop re-iterate 
-    except Exception as ex:
-        template = "An exception of type {0} occurred. Arguments:\n{1!r}"
-        message = template.format(type(ex).__name__, ex.args)
-        print(message)
+    print(str(i) + ": " + element)
+    i+=1
 
+#pull user input
+portToOpen = input("Pick a port number from the list: ")
 
+# Need bounds checking for user input to array connected
 
-      
-
-
+try:
+    myPort = serial.Serial(connected[int(portToOpen)-1])
+#check if an error was return 
+except Exception as ex:
+    template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+    message = template.format(type(ex).__name__, ex.args)
+    print(message)
+    ##if we successfully found a port, leave loop 
+    #break 
+#except FileNotFoundError:
+    #continue 
+    ##don't do anything, let the loop re-iterate 
 
 print( myPort )
-   
-        
-    
 
-
+exit()
 #myPort = serial.Serial('COM3') 
 
 
@@ -46,7 +45,7 @@ print( myPort )
 #myPort = serial.Serial('/dev/ttyUSB0')  # open serial port
 #print(myPort.name)         # check which port was really used
 
-exit()
+
 
 # get user input to customize the API request
 zipcode = input("Enter your zip code to get the weather: ")
