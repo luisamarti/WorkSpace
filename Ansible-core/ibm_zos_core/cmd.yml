@@ -4,7 +4,8 @@
     - ibm.ibm_zos_core
   gather_facts: no
 #############################################################################
-# replace vars accordingly      
+# replace vars accordingly   
+#     
 #############################################################################
   vars:
   environment: "{{ environment_vars }}" 
