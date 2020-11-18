@@ -41,14 +41,6 @@
       debug:
         msg: "{{ myvar }}"
  
-#    - name: call customer module 
-#      parse_user:
-#         string:  "{{operResult.content}}"
-#      register: parse_result 
-    
-#    - name: print result 
-#      debug:
-#         msg: "{{parse_result}}"
 
  
 
