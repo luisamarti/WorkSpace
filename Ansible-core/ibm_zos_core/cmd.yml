@@ -1,0 +1,57 @@
+---
+- hosts: all
+  collections:
+    - ibm.ibm_zos_core
+  gather_facts: no
+#############################################################################
+# replace vars accordingly      
+#############################################################################
+  vars:
+  environment: "{{ environment_vars }}" 
+  connection: ibm.ibm_zos_core.zos_ssh
+
+  tasks:                           
+###############################################################################
+# Ping the host with Ansible ping module to see if the target is available
+# #############################################################################
+    - name: Ping host - {{ inventory_hostname }}
+      ping:
+      register: result
+    
+    - name: Response
+      debug:
+        msg: "{{ result.ping }}"
+###############################################################################
+# Issue an operator command d ts,all
+###############################################################################
+    - name: operator command d ts,list 
+      zos_operator:
+        cmd: 'd ts,all'
+      register: operResult
+    
+    - name: print output from operator cmd
+      ansible.builtin.debug:
+        msg: "{{ operResult }}"
+     
+    - name: set variable 
+      set_fact: 
+        myvar: "{{ operResult.content | to_nice_json }}"
+    
+    - name: print variable 
+      debug:
+        msg: "{{ myvar }}"
+ 
+#    - name: call customer module 
+#      parse_user:
+#         string:  "{{operResult.content}}"
+#      register: parse_result 
+    
+#    - name: print result 
+#      debug:
+#         msg: "{{parse_result}}"
+
+ 
+
+     
+ 
+
